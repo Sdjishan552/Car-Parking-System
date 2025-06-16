@@ -125,10 +125,10 @@ Login Page: The entry point for users and admins, with options for login, regist
 
 
 Admin Dashboard: Displays parking lot details, slot statuses, and options to edit or delete lots.
-![Admin Dashboard](Screenshots/Admin-Dashboard.png)
+![Admin Dashboard](Screenshots/Admin-Dashboard.PNG)
 
 User Booking: Allows users to search and book available parking slots at a selected location.
-![User Booking](Screenshots/User-Dashboard.png)
+![User Booking](Screenshots/User-Dashboard.PNG)
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
