@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Profile</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/user-profile.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="user-profile">
+    <div class="sidebar">
+      <h2>User Dashboard</h2>
+      <a href="{{ url_for('user_booking', username=user['username']) }}">Home</a>
+      <a href="{{ url_for('user_booking_history', username=user['username']) }}">Booking History</a>
+      <a href="{{ url_for('user_profile', username=user['username']) }}">Profile</a>
+      <a href="{{ url_for('user_summery', username=user['username']) }}">Summary</a>
+      <a href="{{ url_for('user_logout') }}">Logout</a>
+    </div>
+
+    <div class="main-content">
+      <h1>Welcome, {{ user['fullname'] }}!</h1>
+      <a href="{{ edit_profile_url }}" class="add-card-btn">Edit Profile</a>
+      <div class="user-card">
+        <p><strong>Full Name:</strong> {{ user['fullname'] }}</p>
+        <p><strong>Username:</strong> {{ user['username'] }}</p>
+        <p><strong>Address:</strong> {{ user['address'] }}</p>
+        <p><strong>Pincode:</strong> {{ user['pincode'] }}</p>
+        <p><strong>Email:</strong> {{ user['email'] }}</p>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="footer">
+    © 2025 Vehicle Parking App | Designed with 💙
+  </div>
+</body>
+</html>

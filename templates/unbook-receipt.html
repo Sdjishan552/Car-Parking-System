@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Unbooking Receipt</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/unbook-receipt.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="user-receipt">
+    <div class="sidebar">
+      <h2>User Dashboard</h2>
+      <nav>
+        <a href="{{ url_for('user_booking', username=session['username']) }}">Home</a>
+        <a href="{{ url_for('user_booking_history', username=session['username']) }}">Booking History</a>
+        <a href="{{ url_for('user_profile', username=session['username']) }}">Profile</a>
+        <a href="{{ url_for('user_summery', username=session['username']) }}">Summary</a>
+        <a href="{{ url_for('user_logout') }}">Logout</a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <h1>Unbooking Receipt</h1>
+      <h2>Please review the details below before confirming.</h2>
+
+      <div class="receipt-details">
+        <p><strong>User Name:</strong> {{ receipt_data.user_name }}</p>
+        <p><strong>User ID:</strong> {{ receipt_data.user_id }}</p>
+        <p><strong>Vehicle Number:</strong> {{ receipt_data.vehicle_number }}</p>
+        <p><strong>Booking Time:</strong> {{ receipt_data.booking_time }}</p>
+        <p><strong>Unbooking Time:</strong> {{ receipt_data.unbooking_time }}</p>
+        <p><strong>Total Cost:</strong> ₹{{ receipt_data.total_cost }}</p>
+      </div>
+
+      <div class="receipt-actions">
+        <form action="{{ url_for('unbook_parking', booking_id=booking_id) }}" method="POST">
+          <button type="submit" class="confirm-button">Confirm Unbook</button>
+        </form>
+        <a href="{{ url_for('user_booking_history', username=session['username']) }}" class="cancel-button">Cancel</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    © 2025 Vehicle Parking App | Designed with 💙
+  </footer>
+</body>
+</html>

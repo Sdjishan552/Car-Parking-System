@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  background: url("/static/proj_6.jpg") no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: #2c3e50;
+}
+
+/* Layout */
+.user-booking {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Main Content */
+.main-content {
+  background-color: rgba(255, 255, 255, 0.92);
+  padding: 50px 40px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  animation: fadeIn 0.6s ease;
+}
+
+.main-content h1 {
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1a1a1a;
+}
+
+.parking-lot img {
+  width: 200px;
+  margin-bottom: 25px;
+}
+
+.parking-lot h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.parking-lot p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 15px 0;
+  font-size: 14px;
+  color: #444;
+  border-top: 1px solid #ddd;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 30px 20px;
+  }
+
+  .main-content h1 {
+    font-size: 28px;
+  }
+
+  .parking-lot h2 {
+    font-size: 20px;
+  }
+
+  .parking-lot p {
+    font-size: 15px;
+  }
+}

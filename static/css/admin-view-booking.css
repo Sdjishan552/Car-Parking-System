@@ -1,0 +1,97 @@
+/* ---------------------------------------------------------
+   Global Reset and Utility Styles
+--------------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------
+   Body Styling
+--------------------------------------------------------- */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: url('/static/proj_4.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  color: #2c3e50;
+}
+
+/* ---------------------------------------------------------
+   Slot Details Container
+--------------------------------------------------------- */
+.slot-details {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px 28px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 0.3s ease;
+}
+
+.slot-details:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------------------------------------------------------
+   Title Styling
+--------------------------------------------------------- */
+.slot-details h1 {
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+  color: #34495e;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* ---------------------------------------------------------
+   Booking Info Styling
+--------------------------------------------------------- */
+.details p {
+  font-size: 15px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dashed #ececec;
+  padding-bottom: 6px;
+}
+
+.details strong {
+  color: #2d6cdf;
+  min-width: 140px;
+  font-weight: 500;
+}
+
+/* ---------------------------------------------------------
+   Button Styling
+--------------------------------------------------------- */
+.back-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background-color: #2d6cdf;
+  color: #fff;
+  text-decoration: none;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 8px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.back-btn:hover {
+  background-color: #1f4fa5;
+}
+
+.back-btn:active {
+  transform: scale(0.98);
+}

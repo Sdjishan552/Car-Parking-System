@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Registration - Vehicle Parking App</title>
+  
+  <!-- External CSS Links -->
+  <link href="{{ url_for('static', filename='css/login.css') }}" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/new-user-registration-system.css') }}" rel="stylesheet">  <!-- Custom CSS -->
+</head>
+
+<body>
+
+  <div class="login-container">
+    <h2 class="login-title">User Registration - Vehicle Parking App</h2>
+    
+    <!-- Registration Form -->
+    <form action="{{ url_for('register_user') }}" method="POST"> <!-- Updated to use 'register_user' route -->
+      <div class="mb-3">
+        <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Full Name" required>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="address" name="address" placeholder="Address" required>
+      </div>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="pincode" name="pincode" placeholder="Pincode" required>
+      </div>
+      <button type="submit" name="action" value="register" class="btn-register">Register</button>
+
+    </form>
+    
+    <!-- Back to Login -->
+    <div class="back-button">
+      <a href="{{ url_for('login') }}">Back to Login</a>
+    </div>
+  </div>
+
+</body>
+
+</html>

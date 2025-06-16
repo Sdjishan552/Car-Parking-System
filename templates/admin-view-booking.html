@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Slot Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/admin-view-booking.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="slot-details">
+    <h1>Slot Booking Details</h1>
+
+    <div class="details">
+      <p><strong>Slot ID:</strong> {{ booking_data['slot_number'] }}</p>
+      <p><strong>Vehicle Number:</strong> {{ booking_data['vehicle_number'] }}</p>
+      <p><strong>User Name:</strong> {{ booking_data['user_fullname'] }}</p>
+      <p><strong>User Email:</strong> {{ booking_data['user_email'] }}</p>
+      <p><strong>Booking Time:</strong> {{ booking_data['booking_time'] }}</p>
+      <p><strong>Lot ID:</strong> {{ lot['id'] }}</p>
+      <p><strong>Location:</strong> {{ lot['location_name'] }}</p>
+      <p><strong>Address:</strong> {{ lot['address'] }}</p>
+      <p><strong>Pincode:</strong> {{ lot['pincode'] }}</p>
+      <p><strong>Price per Hour:</strong> ₹{{ lot['price_per_hour'] }}</p>
+    </div>
+
+    <a href="{{ url_for('admin_dashboard') }}" class="back-btn">Back to Dashboard</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="{{ url_for('static', filename='css/admin-user.css') }}" rel="stylesheet">
+</head>
+<body>
+
+<div class="user-summery">
+    <!-- Sidebar -->
+    <div class="admin-dashboard">
+        <div class="sidebar">
+          <h2>Admin Dashboard</h2>
+          <a href="{{ url_for('admin_dashboard') }}">Home</a>
+          <a href="{{ url_for('admin_users') }}">Users</a>
+          
+          <a href="{{ url_for('admin_summery') }}">Summary</a>
+          <a href="{{ url_for('admin_login') }}">Logout</a>
+        </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>🔍 Search Bookings</h1>
+
+        <!-- Search Form -->
+        <form method="GET" action="{{ url_for('admin_users') }}">
+            <input type="text" name="query" placeholder="Search by username, vehicle number, or parking lot name" value="{{ query }}" required />
+            <button type="submit">Search</button>
+        </form>
+
+        <h2>🟢 Active Bookings</h2>
+        {% if active_bookings %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Parking Lot</th>
+                        <th>Slot</th>
+                        <th>Vehicle Number</th>
+                        <th>Booking Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in active_bookings %}
+                    <tr>
+                        <td>{{ booking['user_name'] }}</td>
+                        <td>{{ booking['email'] }}</td>
+                        <td>{{ booking['location_name'] }}</td>
+                        <td>{{ booking['slot_number'] }}</td>
+                        <td>{{ booking['vehicle_number'] }}</td>
+                        <td>{{ booking['booking_time'] }}</td>
+                        <td>{{ booking['status'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No active bookings found for this search.</p>
+        {% endif %}
+
+        <h2>📜 Booking History</h2>
+        {% if past_bookings %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Parking Lot</th>
+                        <th>Slot</th>
+                        <th>Vehicle Number</th>
+                        <th>Booking Time</th>
+                        <th>Unbooking Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in past_bookings %}
+                    <tr>
+                        <td>{{ booking['user_name'] }}</td>
+                        <td>{{ booking['email'] }}</td>
+                        <td>{{ booking['location_name'] }}</td>
+                        <td>{{ booking['slot_number'] }}</td>
+                        <td>{{ booking['vehicle_number'] }}</td>
+                        <td>{{ booking['booking_time'] }}</td>
+                        <td>{{ booking['unbooking_time'] or 'N/A' }}</td>
+                        <td>{{ booking['status'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No past bookings found for this search.</p>
+        {% endif %}
+    </div>
+</div>
+
+<footer>
+    © 2025 Vehicle Parking App | Designed with 💙
+</footer>
+
+</body>
+</html>

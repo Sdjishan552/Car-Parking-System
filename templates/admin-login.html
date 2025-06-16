@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Vehicle Parking App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/admin-login.css') }}" rel="stylesheet">  <!-- Link to external CSS -->
+</head>
+<body>
+
+  <div class="login-container">
+    <h2 class="login-title">Admin Login - Vehicle Parking App</h2>
+    <!-- ✅ Error alert using Jinja2 and Bootstrap (NO JavaScript) -->
+    {% if error %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      {{ error }}
+    </div>
+    {% endif %}
+    <form action="admin-login" method="POST">
+      <div class="mb-3">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Admin Username" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn-login">Login</button>
+    </form>
+    <div class="back-button">
+      <a href="{{ url_for('login') }}">Back to User Login</a>
+    </div>
+  </div>
+  
+</body>
+</html>

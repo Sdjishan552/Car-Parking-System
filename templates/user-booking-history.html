@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>User Booking History</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/user-booking-history.css') }}" rel="stylesheet">
+  <style>
+  </style>
+</head>
+<body>
+  <div class="user-summery">
+    <div class="sidebar">
+      <h2>User Dashboard</h2>
+      <nav>
+        <a href="{{ url_for('user_booking', username=user['username']) }}">Home</a>
+        <a href="{{ url_for('user_booking_history', username=user['username']) }}">Booking History</a>
+        <a href="{{ url_for('user_profile', username=user['username']) }}">Profile</a>
+        <a href="{{ url_for('user_summery', username=user['username']) }}">Summary</a>
+        <a href="{{ url_for('user_logout') }}">Logout</a>
+      </nav>
+    </div>
+
+    <div class="main-content">
+      <h1>Booking History</h1>
+      <h2>Welcome, {{ user['fullname'].split()[0] }}! Here's your booking information.</h2>
+
+      <!-- Active Bookings Section -->
+      <h3>Active Bookings</h3>
+      {% if active_bookings %}
+        <table>
+          <thead>
+            <tr>
+              <th>Parking Lot</th>
+              <th>Slot Number</th>
+              <th>Vehicle Number</th>
+              <th>Booking Time</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for active_booking in active_bookings %}
+              <tr>
+                <td>{{ active_booking['location_name'] }}</td>
+                <td>{{ active_booking['slot_number'] }}</td>
+                <td>{{ active_booking['vehicle_number'] }}</td>
+                <td>{{ active_booking['booking_time'] }}</td>
+                <td>{{ active_booking['status'] }}</td>
+                <td>
+                  {% if active_booking['status'] == 'booked' %}
+                    <a href="{{ url_for('unbook_receipt', booking_id=active_booking['id']) }}">Unbook</a>
+                  {% else %}
+                    <span>Unbooked</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No active bookings found.</p>
+      {% endif %}
+
+      <!-- Booking History Section -->
+      <h3>Booking History</h3>
+      {% if all_bookings %}
+        <table>
+          <thead>
+            <tr>
+              <th>Parking Lot</th>
+              <th>Slot Number</th>
+              <th>Vehicle Number</th>
+              <th>Booking Time</th>
+              <th>Unbooking Time</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for booking in all_bookings %}
+              <tr>
+                <td>{{ booking['location_name'] }}</td>
+                <td>{{ booking['slot_number'] }}</td>
+                <td>{{ booking['vehicle_number'] }}</td>
+                <td>{{ booking['booking_time'] }}</td>
+                <td>{{ booking['unbooking_time'] if booking['unbooking_time'] else 'N/A' }}</td>
+                <td>{{ booking['status'] }}</td>
+                <td>
+                  {% if booking['status'] == 'booked' %}
+                    <a href="{{ url_for('unbook_receipt', booking_id=booking['id']) }}">Unbook</a>
+                  {% else %}
+                    <span>Unbooked</span>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No booking history found.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <footer class="footer">
+    © 2025 Vehicle Parking App | Designed with 💙
+  </footer>
+</body>
+</html>

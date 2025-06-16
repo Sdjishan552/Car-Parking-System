@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>Admin Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/admin-dashboard.css') }}" rel="stylesheet">
+</head>
+<body>
+
+  <div class="admin-dashboard">
+    <div class="sidebar">
+      <h2>Admin Dashboard</h2>
+      <a href="{{ url_for('admin_dashboard') }}">Home</a>
+      <a href="{{ url_for('admin_users') }}">Users</a>
+      <a href="{{ url_for('admin_summery') }}">Summary</a>
+      <a href="{{ url_for('admin_login') }}">Logout</a>
+    </div>
+
+    <div class="main-content">
+      <h1>Welcome, Admin!</h1>
+      
+      <!-- Flash Messages -->
+      
+
+      <a href="{{ url_for('add_parking_lot') }}" class="add-card-btn">Add Parking Lot</a>
+
+      {% if lots %}
+        {% for lot, slots, available_count in lots %}
+          <div class="parking-lot">
+            <p><strong>Lot Number:</strong> {{ loop.index }}</p> <!-- Display lot number as 1, 2, ... -->
+
+            <h2>{{ lot[1] }}</h2> <!-- location_name -->
+            <p><strong>ID:</strong> {{ lot[0] }}</p>
+            <p><strong>Address:</strong> {{ lot[2] }}</p>
+            <p><strong>Pincode:</strong> {{ lot[3] }}</p>
+            <p><strong>Price per Hour:</strong> ₹{{ lot[4] }}</p>
+            <p><strong>Maximum Spots:</strong> {{ lot[5] }}</p>
+            <p><strong>Available Spots:</strong> {{ available_count }}</p> <!-- Display available spots -->
+
+            <!-- Parking Slots -->
+            <div class="parking-spots">
+              {% for slot in slots %}
+                <a href="{{ url_for('admin_view_booking', lot_id=lot[0], slot_id=slot[0]) }}" class="spot-box {{ 'occupied' if slot[2] == 'booked' else 'available' }}">
+                  <span class="slot-number">Slot {{ loop.index }}</span> <!-- Added slot number display -->
+                  <span class="slot-status">{{ 'Occupied' if slot[2] == 'booked' else '' }}</span>
+                </a>
+              {% endfor %}
+            </div>
+
+            <!-- Card Actions (Edit, Delete) -->
+            <div class="card-actions">
+              <a href="{{ url_for('edit_parking_lot', lot_id=lot[0]) }}" class="btn edit-btn">Edit</a>
+              <a href="{{ url_for('delete_parking_lot_confirm', lot_id=lot[0]) }}" class="btn delete-btn">Delete</a>
+            </div>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>No parking lots added yet.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 Vehicle Parking App | Designed with 💙
+  </div>
+
+</body>
+</html>

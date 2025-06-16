@@ -1,0 +1,36 @@
+<!-- templates/booking-not-found.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Not Found</title>
+
+  <!-- External CSS Link -->
+  <link href="{{ url_for('static', filename='css/booking-not-found.css') }}" rel="stylesheet">
+
+  <!-- Optional Font (if needed) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="user-booking">
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Booking Not Found</h1>
+
+      <div class="parking-lot">
+        <img src="{{ url_for('static', filename='car-vehicle.jpg') }}" alt="Not Found">
+        <h2>Oops! No Booking Found</h2>
+        <p>No booking exists for this slot. The slot is currently unoccupied.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    © 2025 Vehicle Parking App | Designed with 💙
+
+</body>
+</html>

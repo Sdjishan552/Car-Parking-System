@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>User Summary</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/user-summery.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="user-summary">
+    <div class="sidebar">
+      <h2>User Dashboard</h2>
+      <a href="{{ url_for('user_booking', username=user['username']) }}">Home</a>
+      <a href="{{ url_for('user_booking_history', username=user['username']) }}">Booking History</a>
+      <a href="{{ url_for('user_profile', username=user['username']) }}">Profile</a>
+      <a href="{{ url_for('user_summery', username=user['username']) }}">Summary</a>
+      <a href="{{ url_for('user_logout') }}">Logout</a>
+    </div>
+
+    <div class="main-content">
+      <h1>Welcome, {{ user.fullname }}</h1>
+
+      <div class="booking-summary">
+        <h2>Booking Summary</h2>
+        <p><strong>Active Bookings:</strong> {{ active_bookings | length }}</p>
+        <p><strong>Total Bookings:</strong> {{ total_bookings }}</p>
+        <p><strong>Total Cost Spent:</strong> ₹{{ "%.2f" | format(total_cost) }}</p>
+        <p><strong>Most Booked Place:</strong> {{ most_booked_place }} ({{ most_booked_count }} times)</p>
+      </div>
+
+      <div class="recent-bookings">
+        <h2>Recent Bookings</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Parking Lot</th>
+              <th>Slot Number</th>
+              <th>Vehicle Number</th>
+              <th>Booking Time</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for booking in recent_bookings %}
+              <tr>
+                <td>{{ booking['location_name'] }}</td>
+                <td>{{ booking['slot_number'] }}</td>
+                <td>{{ booking['vehicle_number'] }}</td>
+                <td>{{ booking['booking_time'] }}</td>
+                <td>{{ booking['status'] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      {% if chart_path %}
+      <div class="booking-chart">
+        <h2>Booking Trends</h2>
+        <img src="{{ url_for('static', filename=chart_path.split('static/')[1]) }}" alt="Bookings per Month" style="max-width: 100%;">
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 Vehicle Parking App | Designed with 💙
+  </div>
+</body>
+</html>

@@ -1,0 +1,160 @@
+/* Global Reset */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body and Container */
+body {
+    font-family: 'Inter', sans-serif;
+    background: url('/static/proj_4.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: #333;
+}
+
+/* Container */
+.container {
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 320px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+
+/* Heading */
+h2 {
+    font-size: 18px;
+    color: #1e2a44;
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+
+/* Form and Inputs */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-control {
+    padding: 8px 10px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+    transition: all 0.2s;
+}
+
+.form-control:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.1rem rgba(59, 130, 246, 0.2);
+    outline: none;
+}
+
+/* Align labels and inputs to the left */
+.form-control-label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 4px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Buttons */
+.btn {
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    border: none;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+}
+
+.btn-secondary {
+    background: #6b7280;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: #4b5563;
+}
+
+/* Back Button */
+.back-button {
+    text-align: center;
+}
+
+.back-button a {
+    font-size: 12px;
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.back-button a:hover {
+    text-decoration: underline;
+}
+
+/* Alert */
+.alert {
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    border: 1px solid #f5c2c7;
+    background: #fee2e2;
+    color: #b91c1c;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 12px;
+        max-width: 95%;
+    }
+    h2 {
+        font-size: 16px;
+    }
+    .form-control {
+        font-size: 12px;
+    }
+    .btn {
+        font-size: 12px;
+    }
+}
+
+/* Ensure the page content stays centered */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

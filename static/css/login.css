@@ -1,0 +1,109 @@
+/* General Body Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: url('/static/project_img1.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+/* Login Form Container */
+.login-container {
+  background: rgba(255, 255, 255, 1); 
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+.login-title {
+  text-align: center;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 30px;
+  font-size: 24px;
+}
+
+/* Input Fields */
+.form-control {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: #4b6cb7;
+  box-shadow: 0 0 0 0.2rem rgba(75, 108, 183, 0.25);
+}
+
+/* Buttons */
+button, .btn-other {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* Button Specific Styles */
+.btn-login {
+  background-color: #4b6cb7;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #365b8c;
+}
+
+.btn-other {
+  background-color: #f0f4f8;
+  color: #333;
+  border: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.btn-other:hover {
+  background-color: #e2e8f0;
+}
+
+/* Additional Styles */
+a {
+  text-decoration: none;
+}
+
+/* === Added Popup Error Message Styles === */
+.popup-error {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+  padding: 12px 16px;
+  border-radius: 8px;
+  width: 100%;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+/* === End of Added Popup Styles === */

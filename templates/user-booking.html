@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>User Booking</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/user-booking.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="user-booking">
+    <div class="sidebar">
+      <h2>User Dashboard</h2>
+      <a href="{{ url_for('user_booking', username=user['username']) }}">Home</a>
+      <a href="{{ url_for('user_booking_history', username=user['username']) }}">Booking History</a>
+      <a href="{{ url_for('user_profile', username=user['username']) }}">Profile</a>
+      <a href="{{ url_for('user_summery', username=user['username']) }}">Summary</a>
+      <a href="{{ url_for('user_logout') }}">Logout</a>
+    </div>
+
+    <div class="main-content">
+      <h1>Good to see you, {{ user['fullname'].split()[0] }}! Time to roll into your space.</h1>
+
+      <!-- Search Bar for Filtering -->
+      <form action="{{ url_for('user_booking', username=user['username']) }}" method="GET" class="search-form">
+        <div class="search-container">
+          <input type="text" name="search" id="search-input" placeholder="Search by PIN code or Location" required>
+          <button type="submit" id="search-button">Search</button>
+        </div>
+      </form>
+
+      <!-- Display error message if available -->
+      {% if error_message %}
+        <div class="error-message">
+          <p style="color: red;">{{ error_message }}</p>
+        </div>
+      {% endif %}
+
+      {% for lot, slots in lots %}
+        <div class="parking-lot">
+          <h2>{{ lot[1] }} (Location: {{ lot[2] }})</h2>
+          <p><strong>Price per Hour:</strong> ₹{{ lot[4] }}</p>
+          <p><strong>Maximum Slots:</strong> {{ lot[5] }}</p>
+          <p><strong>Pin Code:</strong> {{ lot[3] }}</p>
+
+          <div class="slots">
+            {% for slot in slots %}
+              <div class="slot {% if slot[2] == 'booked' %}booked{% else %}available{% endif %}">
+                <p>Slot {{ slot[1] }}</p>
+
+                {% if slot[2] == 'available' %}
+                  <form action="{{ url_for('book_slot_user', lot_id=lot[0], slot_id=slot[1]) }}" method="POST">
+                    <label for="vehicle_number_{{ slot[1] }}">Vehicle Number:</label>
+                    <input type="text" name="vehicle_number" id="vehicle_number_{{ slot[1] }}" required placeholder="Enter vehicle number">
+                    <button type="submit">Book</button>
+                  </form>
+                {% else %}
+                  <p><em>Booked</em></p>
+                  {% for booking in bookings if booking['slot_id'] == slot[0] and booking['status'] == 'booked' %}
+                    <a href="{{ url_for('unbook_receipt', booking_id=booking['id']) }}" class="cancel-button">Cancel</a>
+                  {% endfor %}
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 Vehicle Parking App | Designed with 💙
+  </div>
+</body>
+</html>

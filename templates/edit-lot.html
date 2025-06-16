@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit Parking Lot</title>
+  <link href="{{ url_for('static', filename='css/edit-lot.css') }}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>Edit Parking Lot</h1>
+
+    <br>
+
+    <form action="{{ url_for('edit_parking_lot', lot_id=lot['id']) }}" method="POST">
+      <div class="form-group">
+        <label>Location Name:</label>
+        <input type="text" name="location_name" value="{{ lot['location_name'] }}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Address:</label>
+        <input type="text" name="address" value="{{ lot['address'] }}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Pincode:</label>
+        <input type="text" name="pincode" value="{{ lot['pincode'] }}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Price per Hour (₹):</label>
+        <input type="number" step="0.1" name="price_per_hour" value="{{ lot['price_per_hour'] }}" required>
+      </div>
+
+      <div class="form-group">
+        <label>Max Spots:</label>
+        <input type="number" name="max_spots" value="{{ lot['max_spots'] }}" required>
+        <small>Currently Booked Slots: {{ booked_slots_count }}</small>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit">Update Parking Lot</button>
+        <a href="{{ url_for('admin_dashboard') }}" class="cancel-link">Cancel</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

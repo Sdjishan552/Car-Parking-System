@@ -1,0 +1,165 @@
+/* ---------------------------------------------------------
+   Global Reset and Utility Styles
+--------------------------------------------------------- */
+
+/* Universal Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------------------------------------
+   Body Styling
+--------------------------------------------------------- */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('/static/proj_4.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+/* ---------------------------------------------------------
+   Login Container
+--------------------------------------------------------- */
+.login-container {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px;  /* Reduced padding for better layout */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ---------------------------------------------------------
+   Typography - Title
+--------------------------------------------------------- */
+.login-title {
+    text-align: center;
+    color: #2f4f4f; /* Slightly lighter shade */
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/* ---------------------------------------------------------
+   Form Control Styling
+--------------------------------------------------------- */
+.form-control {
+    width: 100%;
+    min-width: 340px;  /* Added min-width for consistent width */
+    border-radius: 8px;
+    padding: 12px 16px;  /* Kept increased padding for better spacing */
+    font-size: 14px;  /* Kept the increased font size for readability */
+    margin-bottom: 15px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #4b6cb7;
+    box-shadow: 0 0 0 0.2rem rgba(75, 108, 183, 0.25);
+}
+
+/* ---------------------------------------------------------
+   Button Styling - Register Button
+--------------------------------------------------------- */
+.btn-register {
+    width: 100%;
+    min-width: 340px;  /* Added min-width to align with form input width */
+    background-color: #4b6cb7;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.btn-register:hover {
+    background-color: #365b8c;
+}
+
+.btn-register:active {
+    transform: scale(0.98); /* Adds a subtle scale effect */
+}
+
+/* ---------------------------------------------------------
+   Back Button Styling
+--------------------------------------------------------- */
+.back-button {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.back-button a {
+    color: #4b6cb7;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.back-button a:hover {
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------------
+   Popup Styling
+--------------------------------------------------------- */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Popup Content */
+.popup-content {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Popup Button */
+.popup button {
+    background-color: #4b6cb7;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.popup button:hover {
+    background-color: #365b8c;
+}
+
+.popup button:active {
+    transform: scale(0.98);
+}
+
+.popup button:focus {
+    outline: none;
+}

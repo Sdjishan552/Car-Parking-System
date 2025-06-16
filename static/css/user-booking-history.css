@@ -1,0 +1,204 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: url("/static/proj_10.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  color: #333;
+  overflow: hidden;
+}
+
+.user-summery {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+/* Sidebar styling */
+.sidebar {
+  width: 220px;
+  background-color: rgba(45, 62, 80, 0.85);
+  color: #fff;
+  padding: 30px 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  box-shadow: 3px 0 12px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  height: 91.5%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar h2 {
+  font-size: 26px;
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.sidebar nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 12px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar a:hover {
+  background-color: rgba(76, 106, 130, 1);
+  transform: scale(1.05);
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  margin-left: 240px;
+  padding: 30px;
+  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+  height: calc(100vh - 100px);
+  animation: fadeInUp 0.4s ease-in-out;
+}
+
+.main-content h1 {
+  font-size: 32px;
+  color: #2c3e50;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.main-content h2 {
+  font-size: 22px;
+  color: #34495e;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+/* Improved professional table styling */
+/* Professional Transparent Table Styling */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  font-size: 15px;
+  table-layout: auto;
+}
+
+/* Table Header */
+table th {
+  background-color: rgba(44, 62, 80, 0.9); /* Dark navy with transparency */
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 18px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+/* Table Body */
+table td {
+  background-color: rgba(255, 255, 255, 0.7); /* White with transparency */
+  color: #2c3e50;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 18px;
+  letter-spacing: 0.3px;
+  line-height: 1.6;
+  vertical-align: middle;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: left;
+  word-wrap: break-word;
+}
+
+/* Alternate row color */
+table tr:nth-child(even) td {
+  background-color: rgba(240, 248, 255, 0.6); /* light blueish with transparency */
+}
+
+/* Hover effect */
+table tr:hover td {
+  background-color: rgba(200, 220, 255, 0.5);
+  cursor: pointer;
+}
+
+/* Links inside table */
+table td a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+table td a:hover {
+  text-decoration: underline;
+  color: #1558b0;
+}
+a {
+  color: #2980b9;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #1abc9c;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 16px;
+  font-size: 14px;
+  color: #34495e;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  z-index: 999;
+}
+
+/* Optional animation */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

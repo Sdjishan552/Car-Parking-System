@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Confirm Delete Parking Lot</title>
+    <link href="{{ url_for('static', filename='css/delete-confirmation.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Confirm Delete Parking Lot</h1>
+
+        <!-- Flash messages -->
+        
+
+        {% if lot %}
+            <p>Are you sure you want to delete the parking lot <strong>{{ lot['location_name']|default('Unknown') }}</strong> (ID: {{ lot['id']|default('N/A') }})?</p>
+            <p><strong>Address:</strong> {{ lot['address']|default('N/A') }}</p>
+            <p><strong>Pincode:</strong> {{ lot['pincode']|default('N/A') }}</p>
+            <p><strong>Maximum Spots:</strong> {{ lot['max_spots']|default('0') }}</p>
+            <p><strong>Booked Slots:</strong> {{ booked_slots_count|default('0') }}</p>
+
+            {% if bookings and bookings|length > 0 %}
+                <h3>Active Bookings</h3>
+                <table>
+                    <tr>
+                        <th>Booking ID</th>
+                        <th>User</th>
+                        <th>Vehicle Number</th>
+                        <th>Slot Number</th>
+                        <th>Booking Time</th>
+                        <th>Status</th>
+                    </tr>
+                    {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking['id']|default('N/A') }}</td>
+                            <td>{{ booking['fullname']|default('Unknown') }}</td>
+                            <td>{{ booking['vehicle_number']|default('N/A') }}</td>
+                            <td>{{ booking['slot_number']|default('N/A') }}</td>
+                            <td>{{ booking['booking_time']|default('N/A') }}</td>
+                            <td>{{ booking['status']|default('N/A') }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <p><strong>Note:</strong> This lot has active bookings. Deletion is not possible until all bookings are resolved.</p>
+            {% else %}
+                <p><strong>No active bookings found.</strong> This parking lot is safe to delete.</p>
+            {% endif %}
+
+            <form action="{{ url_for('delete_parking_lot_confirm', lot_id=lot['id']|default(0)) }}" method="POST">
+                {% if booked_slots_count|default(0) == 0 %}
+                    <button type="submit">Confirm Delete</button>
+                {% else %}
+                    <button type="submit" disabled>Confirm Delete (Blocked: Active Bookings)</button>
+                {% endif %}
+                <a href="{{ url_for('admin_dashboard') }}" class="cancel-link">Cancel</a>
+            </form>
+        {% else %}
+            <p><strong>Error:</strong> Parking lot details not found.</p>
+            <a href="{{ url_for('admin_dashboard') }}" class="cancel-link">Back to Dashboard</a>
+        {% endif %}
+    </div>
+</body>
+</html>
