@@ -52,7 +52,7 @@ Optional: Matplotlib (for chart generation)
 Setup Instructions
 
 Clone the Repository:
-git clone https://github.com/Sdjishan552/Car-Parking-Management-System.git
+git clone https://github.com/Sdjishan552/Car-Parking-System.git
 cd car-parking-management-system
 
 
