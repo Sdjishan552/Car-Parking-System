@@ -121,7 +121,7 @@ Screenshots
 Here are some key views of the Car Parking Management System:
 
 Login Page: The entry point for users and admins, with options for login, registration, and admin access. 
-![Login Page](screenshots/log-in_page.PNG)
+![Login Page](screenshots/Log-in_Page.PNG)
 
 
 Admin Dashboard: Displays parking lot details, slot statuses, and options to edit or delete lots.
