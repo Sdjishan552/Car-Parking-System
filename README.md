@@ -89,6 +89,7 @@ Ensure the static/charts directory is writable if using Matplotlib for chart gen
 The application uses Indian Standard Time (IST) for booking timestamps, adjusted by +5 hours and 30 minutes.
 
 Folder Structure
+```
 car-parking-management-system/
 │
 ├── app.py                  # Main Flask application
@@ -115,7 +116,7 @@ car-parking-management-system/
 │   ├── admin_dashboard.png
 │   ├── user_booking.png
 └── README.md               # Project documentation
-
+```
 Screenshots
 Here are some key views of the Car Parking Management System:
 
