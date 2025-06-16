@@ -121,14 +121,14 @@ Screenshots
 Here are some key views of the Car Parking Management System:
 
 Login Page: The entry point for users and admins, with options for login, registration, and admin access. 
-![Login Page](screenshots/Log-in_Page.PNG)
+![Login Page](Screenshots/Log-in_Page.PNG)
 
 
 Admin Dashboard: Displays parking lot details, slot statuses, and options to edit or delete lots.
-![Admin Dashboard](screenshots/Admin-dashboard.png)
+![Admin Dashboard](Screenshots/Admin-dashboard.png)
 
 User Booking: Allows users to search and book available parking slots at a selected location.
-![User Booking](screenshots/user-Dashboard.png)
+![User Booking](Screenshots/user-Dashboard.png)
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
