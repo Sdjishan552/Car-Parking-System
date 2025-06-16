@@ -109,13 +109,17 @@ car-parking-management-system/
 │   └── ... (other templates)
 ├── static/                 # Static assets (CSS, JS, images)
 │   ├── css/                # Custom CSS and Bootstrap
-│   ├── js/                 # JavaScript files
-│   └── charts/             # Generated charts (if Matplotlib is used)
+│   ├── charts/
+|   ├── img_1/
+|   ├── image_2/                # Images
+│   └── .../             # Generated charts (if Matplotlib is used)
 ├── screenshots/            # Screenshots for documentation
-│   ├── login_page.png
-│   ├── admin_dashboard.png
-│   ├── user_booking.png
+│   ├── Log-in_Page.PNG
+│   ├── Admin-Dashboard.PNG
+│   ├── User-Dashboard.PNG
+├── LICENSE/
 └── README.md               # Project documentation
+
 ```
 Screenshots
 Here are some key views of the Car Parking Management System:
